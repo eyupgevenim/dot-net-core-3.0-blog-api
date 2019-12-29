@@ -58,18 +58,22 @@ EF Core Repository
 ------------------
 
 mapping
+<br />
 <img src="./screenshot/post-mapping.JPG" max-height="400" alt="mapping" /> 
 <br />
 
 DbContext
+<br />
 <img src="./screenshot/ef-db-context.JPG" max-height="400" alt="db-context" />
 <br />
 
 Generic repository
+<br />
 <img src="./screenshot/repository.JPG" max-height="400" alt="repository" />
 <br />
 
 Dependency injection
+<br />
 <img src="./screenshot/DI-DbContext-coniguration.JPG" max-height="400" alt="DI" />
 
 
