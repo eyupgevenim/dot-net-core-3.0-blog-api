@@ -38,7 +38,7 @@ Migration
 edit ```var connectionString =""; ``` in ```DbContextFactory.cs ``` and 
 go ```.....\Blog\src\Libraries\Blog.Data ``` path
 open on CLI and run commands
-```
+```sh
 #restore Blog.Data project
 ...Blog.Data_> dotnet restore
 
