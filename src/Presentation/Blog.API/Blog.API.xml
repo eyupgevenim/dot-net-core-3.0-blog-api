@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Blog.API</name>
+    </assembly>
+    <members>
+        <member name="T:Blog.API.Controllers.V11.AuthController">
+            <summary>
+            Auth api controller v1.1
+            </summary>
+        </member>
+        <member name="T:Blog.API.Controllers.V11.PostsController">
+            <summary>
+            Posts api controller v1.1
+            </summary>
+        </member>
+        <member name="M:Blog.API.Controllers.V11.PostsController.Delete(System.Int32)">
+            <summary>
+            Override delete method - v1.1
+            </summary>
+            <param name="id">Post id</param>
+            <returns>IActionResult</returns>
+        </member>
+        <member name="T:Blog.API.Controllers.V1.AuthController">
+            <summary>
+            Auth api controller
+            </summary>
+        </member>
+        <member name="M:Blog.API.Controllers.V1.AuthController.Login(Blog.API.Models.AuthModels.LoginModel)">
+            <summary>
+            Get token
+            </summary>
+            <param name="user">LoginModel</param>
+            <returns></returns>
+        </member>
+        <member name="T:Blog.API.Controllers.V1.PostsController">
+            <summary>
+            Posts api controller
+            </summary>
+        </member>
+        <member name="M:Blog.API.Controllers.V1.PostsController.Get(Blog.API.Models.PostModels.PostPageOptionsModel)">
+            <summary>
+            search posts PostPageOptionsModel model parameter
+            </summary>
+            <param name="pageOptions">search parameters</param>
+            <returns></returns>
+        </member>
+        <member name="M:Blog.API.Controllers.V1.PostsController.Get(System.Int32)">
+            <summary>
+            Get post by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Blog.API.Controllers.V1.PostsController.Post(Blog.API.Models.PostModels.PostModel)">
+            <summary>
+            Add post as PostModel model
+            </summary>
+            <param name="model">PostModel model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Blog.API.Controllers.V1.PostsController.Put(System.Int32,Blog.API.Models.PostModels.PostModel)">
+            <summary>
+            Update post by id
+            </summary>
+            <param name="id">post id</param>
+            <param name="model">PostModel model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Blog.API.Controllers.V1.PostsController.Delete(System.Int32)">
+            <summary>
+            Delete post by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Blog.API.Infrastructure.Extensions.ConfigureServiceExtensions">
+            <summary>
+            Configure service extensions
+            </summary>
+        </member>
+        <member name="M:Blog.API.Infrastructure.Extensions.ConfigureServiceExtensions.AddCustomApiVersioning(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Custom api versioning
+            </summary>
+            <param name="services">IServiceCollection</param>
+            <returns>IServiceCollection</returns>
+        </member>
+        <member name="M:Blog.API.Infrastructure.Extensions.ConfigureServiceExtensions.AddJwtBearerAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Add JwtBearer Authentication configures
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Blog.API.Infrastructure.Extensions.ConfigureServiceExtensions.AddSwaggerOptionService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds Swagger services and configures the Swagger services.
+            </summary>
+        </member>
+        <member name="T:Blog.API.Infrastructure.Extensions.DependencyRegistrarExtensions">
+            <summary>
+            Registrar dependency injection extensions
+            </summary>
+        </member>
+        <member name="M:Blog.API.Infrastructure.Extensions.DependencyRegistrarExtensions.AddDependencyInjection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Register dependency injection
+            </summary>
+            <param name="services">IServiceCollection</param>
+            <param name="configuration">IConfiguration</param>
+            <returns></returns>
+        </member>
+        <member name="M:Blog.API.Infrastructure.Extensions.DependencyRegistrarExtensions.AddDatabaseContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Ragestir database context
+            </summary>
+            <param name="services">IServiceCollection</param>
+            <param name="configuration">IConfiguration</param>
+            <returns></returns>
+        </member>
+        <member name="T:Blog.API.Infrastructure.InitializeData.InitializeDataExtensions">
+            <summary>
+            Initialize db Data
+            </summary>
+        </member>
+        <member name="M:Blog.API.Infrastructure.InitializeData.InitializeDataExtensions.SeedData(Microsoft.Extensions.Hosting.IHost)">
+            <summary>
+            Databese deed data
+            </summary>
+            <param name="host">IWebHost</param>
+            <returns>IWebHost</returns>
+        </member>
+        <member name="T:Blog.API.Infrastructure.OperationFilters.ApiVersionOperationFilter">
+            <summary>
+            An Open API operation filter used to document the implicit API version parameter.
+            </summary>
+            <remarks>This <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter"/> is only required due to bugs in the <see cref="T:Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator"/>.
+            Once they are fixed and published, this class can be removed. See:
+            - https://github.com/domaindrivendev/Swashbuckle.AspNetCore/issues/412
+            - https://github.com/domaindrivendev/Swashbuckle.AspNetCore/pull/413</remarks>
+        </member>
+        <member name="M:Blog.API.Infrastructure.OperationFilters.ApiVersionOperationFilter.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Blog.API.Infrastructure.OperationFilters.TokenOperationFilter">
+            <summary>
+            https://github.com/domaindrivendev/Swashbuckle.AspNetCore/issues/1295
+            //https://stackoverflow.com/questions/58197244/swaggerui-with-netcore-3-0-bearer-token-authorization
+            </summary>
+        </member>
+        <member name="T:Blog.API.Models.AuthModels.LoginModel">
+            <summary>
+            Login model for token 
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.AuthModels.LoginModel.UserName">
+            <summary>
+            User name
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.AuthModels.LoginModel.Password">
+            <summary>
+            User password
+            </summary>
+        </member>
+        <member name="T:Blog.API.Models.AuthModels.TokenModel">
+            <summary>
+            Token result model
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.AuthModels.TokenModel.access_token">
+            <summary>
+            Token data
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.AuthModels.TokenModel.token_type">
+            <summary>
+            Token type
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.AuthModels.TokenModel.expires_in">
+            <summary>
+            token expires
+            </summary>
+        </member>
+        <member name="T:Blog.API.Models.PageOptionsModel">
+            <summary>
+            Page Options
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.PageOptionsModel.Page">
+            <summary>
+            Page Number min:1 max:int.MaxValue
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.PageOptionsModel.Count">
+            <summary>
+            Data Count min:1 max:20
+            </summary>
+        </member>
+        <member name="T:Blog.API.Models.PageResultModel`1">
+            <summary>
+            Paging generic model
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Blog.API.Models.PageResultModel`1.Page">
+            <summary>
+            Page number
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.PageResultModel`1.Count">
+            <summary>
+            Page data count
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.PageResultModel`1.HasNextPage">
+            <summary>
+            Has next page
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.PageResultModel`1.HasPreviousPage">
+            <summary>
+            Has previous page
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.PageResultModel`1.TotalCount">
+            <summary>
+            Total data
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.PageResultModel`1.TotalPages">
+            <summary>
+            Total pages
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.PageResultModel`1.Items">
+            <summary>
+            Date items
+            </summary>
+        </member>
+        <member name="T:Blog.API.Models.PostModels.PostModel">
+            <summary>
+            Post model
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.PostModels.PostModel.Title">
+            <summary>
+            post title
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.PostModels.PostModel.Body">
+            <summary>
+            post body
+            </summary>
+        </member>
+        <member name="T:Blog.API.Models.PostModels.PostPageOptionsModel">
+            <summary>
+            post search model options
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.PostModels.PostPageOptionsModel.Title">
+            <summary>
+            post title
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.PostModels.PostPageOptionsModel.Body">
+            <summary>
+            post body
+            </summary>
+        </member>
+        <member name="P:Blog.API.Models.PostModels.PostPageOptionsModel.Count">
+            <summary>
+            Data Count min:1 max:100
+            </summary>
+        </member>
+        <member name="T:Blog.API.Models.PostModels.PostPageResultModel">
+            <summary>
+            post search result model
+            </summary>
+        </member>
+    </members>
+</doc>
