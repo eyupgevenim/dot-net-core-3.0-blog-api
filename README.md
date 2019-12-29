@@ -2,12 +2,11 @@
 ============================
 
 .Net Core 3.0 Web Api design versioning, Jwt bearer authentication, swagger documentation, serilog logger,
- EF Core Repository pattern, Db Migration, NUnit Tests, dependency injection and project layers  
-
+ EF Core Repository pattern, Db Migration, NUnit Tests, dependency injection and project layers 
+ 
 
  Project layers
  --------------
-
 
 <img src="./screenshot/solution.JPG" max-height="400" alt="solution" />
 <img src="./screenshot/solution-2.JPG" max-height="400" alt="solution" />
@@ -36,8 +35,9 @@ Swagger documentation
 
 Migration
 ---------
+edit ```var connectionString =""; ``` in ```DbContextFactory.cs ``` and 
 go ```.....\Blog\src\Libraries\Blog.Data ``` path
-open CLI and run commands
+open on CLI and run commands
 ```
 #restore Blog.Data project
 ...Blog.Data_> dotnet restore

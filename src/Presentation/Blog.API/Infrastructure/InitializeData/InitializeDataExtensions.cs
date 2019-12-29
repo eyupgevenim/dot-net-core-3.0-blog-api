@@ -16,7 +16,7 @@ namespace Blog.API.Infrastructure.InitializeData
     public static class InitializeDataExtensions
     {
         /// <summary>
-        /// Databese deed data
+        /// Database deed data
         /// </summary>
         /// <param name="host">IWebHost</param>
         /// <returns>IWebHost</returns>

@@ -127,7 +127,7 @@
         </member>
         <member name="M:Blog.API.Infrastructure.InitializeData.InitializeDataExtensions.SeedData(Microsoft.Extensions.Hosting.IHost)">
             <summary>
-            Databese deed data
+            Database deed data
             </summary>
             <param name="host">IWebHost</param>
             <returns>IWebHost</returns>
