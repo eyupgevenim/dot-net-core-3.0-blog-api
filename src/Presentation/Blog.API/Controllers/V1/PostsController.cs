@@ -54,8 +54,16 @@ namespace Blog.API.Controllers.V1
                     Items = result.Items.Select(x => new PostModel
                     {
                         Title = x.Title,
-                        Body = x.Body
-                        //...
+                        Body = x.Body,
+                        BodyOverview = x.BodyOverview,
+                        MetaTitle = x.MetaTitle,
+                        MetaDescription = x.MetaDescription,
+                        MetaKeywords = x.MetaKeywords,
+                        Tags = x.Tags,
+                        AllowComments = x.AllowComments,
+                        CreatedOnUtc = x.CreatedOnUtc,
+                        StartDateUtc = x.StartDateUtc,
+                        EndDateUtc = x.EndDateUtc
                     }).ToList()
                 };
 
@@ -89,7 +97,15 @@ namespace Blog.API.Controllers.V1
                 {
                     Title = entity.Title,
                     Body = entity.Body,
-                    //..
+                    BodyOverview = entity.BodyOverview,
+                    MetaTitle = entity.MetaTitle,
+                    MetaDescription = entity.MetaDescription,
+                    MetaKeywords = entity.MetaKeywords,
+                    Tags = entity.Tags,
+                    CreatedOnUtc = entity.CreatedOnUtc,
+                    AllowComments = entity.AllowComments,
+                    StartDateUtc = entity.StartDateUtc,
+                    EndDateUtc = entity.EndDateUtc
                 };
 
                 return new ObjectResult(model);
@@ -119,8 +135,15 @@ namespace Blog.API.Controllers.V1
                     var entity = new Post
                     {
                         Title = model.Title,
-                        Body = model.Body
-                        //..
+                        Body = model.Body,
+                        BodyOverview = model.BodyOverview,
+                        MetaTitle = model.MetaTitle,
+                        MetaDescription = model.MetaDescription,
+                        MetaKeywords = model.MetaKeywords,
+                        Tags = model.Tags,
+                        AllowComments = model.AllowComments,
+                        StartDateUtc = model.StartDateUtc,
+                        EndDateUtc = model.EndDateUtc
                     };
                     _postService.AddPost(entity);
 
@@ -157,7 +180,14 @@ namespace Blog.API.Controllers.V1
 
                     entity.Title = model.Title;
                     entity.Body = model.Body;
-                    //..
+                    entity.BodyOverview = model.BodyOverview;
+                    entity.AllowComments = model.AllowComments;
+                    entity.Tags = model.Tags;
+                    entity.MetaDescription = model.MetaDescription;
+                    entity.MetaKeywords = model.MetaKeywords;
+                    entity.MetaTitle = model.MetaTitle;
+                    entity.StartDateUtc = model.StartDateUtc;
+                    entity.EndDateUtc = model.EndDateUtc;
                     _postService.UpdatePost(entity);
 
                     return Ok();
