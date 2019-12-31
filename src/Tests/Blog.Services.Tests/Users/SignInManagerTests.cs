@@ -2,27 +2,25 @@
 using Blog.Data;
 using Blog.Services.Users;
 using Moq;
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Xunit;
 
 namespace Blog.Services.Tests.Users
 {
-    [TestFixture]
     public class SignInManagerTests
     {
         private ISignInManager _signInManager;
         private Mock<IRepository<User>> _repositoryUser;
 
-        [SetUp]
-        public void SetUp()
+        public SignInManagerTests()
         {
             _repositoryUser = new Mock<IRepository<User>>();
             _signInManager = new SignInManager(_repositoryUser.Object);
         }
 
-        [Test]
+        [Fact]
         public void create_user_hashed_password_and_salt()
         {
             var user = new User
@@ -35,11 +33,11 @@ namespace Blog.Services.Tests.Users
                 CreatedOnUtc = DateTime.UtcNow
             };
             _signInManager.CreatePassword(user, "123");
-            Assert.IsNotEmpty(user.HashedPassword);
-            Assert.IsNotEmpty(user.Salt);
+            Assert.NotEmpty(user.HashedPassword);
+            Assert.NotEmpty(user.Salt);
         }
 
-        [Test]
+        [Fact]
         public void user_sign_in()
         {
             var user = new User
@@ -55,7 +53,7 @@ namespace Blog.Services.Tests.Users
             _repositoryUser.Setup(x => x.Table).Returns(new List<User> { user }.AsQueryable());
             _signInManager = new SignInManager(_repositoryUser.Object);
 
-            Assert.IsTrue(_signInManager.SignIn("user_test", "123"));
+            Assert.True(_signInManager.SignIn("user_test", "123"));
         }
     }
 }

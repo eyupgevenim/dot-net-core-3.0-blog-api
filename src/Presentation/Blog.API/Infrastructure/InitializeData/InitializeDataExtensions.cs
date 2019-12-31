@@ -34,7 +34,7 @@ namespace Blog.API.Infrastructure.InitializeData
             return host;
         }
 
-        private static async Task AddInitializeUserDataAsync(this IDbContext dbContext, ISignInManager signInManager)
+        public static async Task AddInitializeUserDataAsync(this IDbContext dbContext, ISignInManager signInManager)
         {
             var usersTable = dbContext.Set<User>();
             if (!(await usersTable.AnyAsync()))
@@ -66,7 +66,7 @@ namespace Blog.API.Infrastructure.InitializeData
             }
         }
 
-        private static async Task AddInitializePostDataAsync(this IDbContext dbContext)
+        public static async Task AddInitializePostDataAsync(this IDbContext dbContext)
         {
             var postsTable = dbContext.Set<Post>();
             if (!(await postsTable.AnyAsync()))

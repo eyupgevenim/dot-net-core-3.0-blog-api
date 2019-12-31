@@ -2,14 +2,13 @@
 using Blog.Data;
 using Blog.Services.Posts;
 using Moq;
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Xunit;
 
 namespace Blog.Services.Tests.Posts
 {
-    [TestFixture]
     public class PostServiceTests
     {
         private IPostService _postService;
@@ -81,8 +80,7 @@ namespace Blog.Services.Tests.Posts
             }
         }
 
-        [SetUp]
-        public void SetUp()
+        public PostServiceTests()
         {
             _repositoryPost = new Mock<IRepository<Post>>();
             _repositoryPost.Setup(x => x.Table).Returns(GetPosts.AsQueryable());
@@ -90,14 +88,14 @@ namespace Blog.Services.Tests.Posts
             _postService = new PostService(_repositoryPost.Object);
         }
 
-        [Test]
+        [Fact]
         public void search_posts_by_title_and_paging()
         {
             var postPageResult = _postService.SearchPosts(title: "po", pageIndex: 0, pageSize: 2);
             Assert.NotNull(postPageResult);
-            Assert.IsTrue(postPageResult.TotalPages == 2);
-            Assert.IsTrue(postPageResult.TotalCount == 3);
-            Assert.IsTrue(postPageResult.Items.Count == 2);
+            Assert.True(postPageResult.TotalPages == 2);
+            Assert.True(postPageResult.TotalCount == 3);
+            Assert.True(postPageResult.Items.Count == 2);
         }
     }
 }

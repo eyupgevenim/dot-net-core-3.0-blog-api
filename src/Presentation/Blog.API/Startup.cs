@@ -16,7 +16,7 @@ namespace Blog.API
             Configuration = configuration;
         }
 
-        public void ConfigureServices(IServiceCollection services)
+        public virtual void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
             services.AddDependencyInjection(Configuration);
@@ -31,7 +31,7 @@ namespace Blog.API
             services.AddVersionedApiExplorer(x => x.GroupNameFormat = "'v'VVV");
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
