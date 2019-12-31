@@ -2,7 +2,7 @@
 ============================
 
 .Net Core 3.0 Web Api design versioning, Jwt bearer authentication, swagger documentation, serilog logger,
- EF Core Repository pattern, Db Migration, NUnit Tests, dependency injection and project layers 
+ EF Core Repository pattern, Db Migration, xUnit Tests, dependency injection and project layers 
  
 
  Project layers
@@ -77,12 +77,16 @@ Dependency injection
 <img src="./screenshot/DI-DbContext-coniguration.JPG" max-height="400" alt="DI" />
 
 
-NUnit Tests
+xUnit Tests
 -----------
-
-<img src="./screenshot/post-service-test.JPG" max-height="400" alt="NUnit Tests" />
+Service test
+<br />
+<img src="./screenshot/post-service-test.JPG" max-height="400" alt="xUnit service Tests" />
+Integration test
+<br />
+<img src="./screenshot/post-integration-test.JPG" max-height="400" alt="xUnit integration Tests" />
 
 
 Serilog Logger
 -----------
-<img src="./screenshot/serilog-configurion.JPG" max-height="400" alt="NUnit Tests" />
+<img src="./screenshot/serilog-configurion.JPG" max-height="400" alt="serilog" />
