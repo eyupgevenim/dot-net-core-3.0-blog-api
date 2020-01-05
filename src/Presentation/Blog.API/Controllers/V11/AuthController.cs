@@ -11,6 +11,7 @@ namespace Blog.API.Controllers.V11
     /// </summary>
     [ApiVersion("1.0")]
     [ApiVersion("1.1")]
+    //[Route("v{version:apiVersion}/auth")]
     [Route("v1.1/auth")]
     [ApiController]
     public class AuthController : V1.AuthController//BaseV11Controller

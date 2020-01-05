@@ -88,6 +88,23 @@ namespace Blog.API.IntegrationTests.Controllers.V1
 
             //Assert
 
+            Assert.Throws<HttpRequestException>(() => 
+            {
+                try
+                {
+                    httpResponse.EnsureSuccessStatusCode();
+                }
+                catch (HttpRequestException ex) when (ex.Message.Contains("401 (Unauthorized)"))
+                {
+                    //expected error for ok test
+                    throw ex;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"other error message:{ex.Message}", ex);
+                }
+            });
+
             Assert.Throws<HttpRequestException>(() => httpResponse.EnsureSuccessStatusCode());
 
             Assert.True(httpResponse.StatusCode == HttpStatusCode.Unauthorized);

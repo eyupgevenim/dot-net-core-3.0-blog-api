@@ -10,6 +10,7 @@ namespace Blog.API.Controllers.V11
     [Authorize]
     [ApiVersion("1.0")]
     [ApiVersion("1.1")]
+    //[Route("v{version:apiVersion}/[controller]")]
     [Route("v1.1/[controller]")]
     [ApiController]
     public class PostsController : V1.PostsController//BaseV11Controller
