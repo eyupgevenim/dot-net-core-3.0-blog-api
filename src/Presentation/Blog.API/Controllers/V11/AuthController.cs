@@ -9,6 +9,7 @@ namespace Blog.API.Controllers.V11
     /// <summary>
     /// Auth api controller v1.1
     /// </summary>
+    [ApiVersion("1.0")]
     [ApiVersion("1.1")]
     [Route("v1.1/auth")]
     [ApiController]

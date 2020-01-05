@@ -30,10 +30,10 @@ namespace Blog.API.IntegrationTests.Configurations
             var services = new ServiceCollection();
             var target = new FakeStartup(configuration);
             target.ConfigureServices(services);
-            services.AddTransient<Controllers.V1.PostsController>();
+            services.AddTransient<API.Controllers.V1.PostsController>();
 
             var serviceProvider = services.BuildServiceProvider();
-            var controller = serviceProvider.GetService<Controllers.V1.PostsController>();
+            var controller = serviceProvider.GetService<API.Controllers.V1.PostsController>();
 
             Assert.NotNull(controller);
         }

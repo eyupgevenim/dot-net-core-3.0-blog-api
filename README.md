@@ -87,6 +87,11 @@ Service test
 Integration test
 <br />
 <img src="./screenshot/post-integration-test.JPG" max-height="400" alt="xUnit integration Tests" />
+<br />
+
+Passed Tests
+<br />
+<img src="./screenshot/passed-tests.JPG" max-height="400" alt="xUnit integration Tests" />
 
 
 Serilog Logger

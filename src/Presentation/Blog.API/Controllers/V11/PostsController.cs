@@ -8,6 +8,7 @@ namespace Blog.API.Controllers.V11
     /// Posts api controller v1.1
     /// </summary>
     [Authorize]
+    [ApiVersion("1.0")]
     [ApiVersion("1.1")]
     [Route("v1.1/[controller]")]
     [ApiController]
