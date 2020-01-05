@@ -14,7 +14,7 @@ namespace Blog.Data.DeveloperTool
         public AppDbContext CreateDbContext(string[] args)
         {
             //Database connection string
-            var connectionString = "";
+            var connectionString = "Server=(localdb)\\mssqllocaldb;Database=blog_api_db;Trusted_Connection=True;MultipleActiveResultSets=true";
             var builder = new DbContextOptionsBuilder<AppDbContext>();
             builder.UseSqlServer(connectionString, b => b.MigrationsAssembly("Blog.Data"));
             return new AppDbContext(builder.Options);

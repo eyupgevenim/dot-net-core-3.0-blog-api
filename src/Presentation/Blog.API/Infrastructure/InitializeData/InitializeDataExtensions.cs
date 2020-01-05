@@ -28,6 +28,8 @@ namespace Blog.API.Infrastructure.InitializeData
                 var dbContext = services.GetRequiredService<IDbContext>();
                 var signInManager = services.GetRequiredService<ISignInManager>();
 
+                dbContext.EnsureCreated();
+
                 dbContext.AddInitializeUserDataAsync(signInManager).Wait();
                 dbContext.AddInitializePostDataAsync().Wait();
             }
