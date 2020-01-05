@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Web;
 using Xunit;
 
-namespace Blog.API.IntegrationTests.Posts
+namespace Blog.API.IntegrationTests.Controllers
 {
     //https://fullstackmark.com/post/20/painless-integration-testing-with-aspnet-core-web-api
     public class PostsControllerTests : IClassFixture<BlogApiFactory<Startup>>
