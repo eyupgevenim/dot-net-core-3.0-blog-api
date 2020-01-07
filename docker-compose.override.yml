@@ -1,0 +1,20 @@
+version: '3.4'
+
+# You need to start it with the following CLI command:
+# docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
+
+services:
+    sqldata:
+        environment:
+            - SA_PASSWORD=Pass@word
+            - ACCEPT_EULA=Y
+        ports:
+            - '5433:1433'
+
+    blog.api:
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - ASPNETCORE_URLS=http://0.0.0.0:80
+            - ConnectionStrings:DefaultConnection=${BLOG_API_DB:-Server=sqldata;Database=blog_api_db;User Id=sa;Password=Pass@word}
+        ports:
+            - '5100:80'

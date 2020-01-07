@@ -1,0 +1,36 @@
+version: '3.4'
+
+# docker-compose -f docker-compose-tests.yml -f docker-compose-tests.override.yml up --build
+
+services:
+  sql-data-test:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5433:1433"
+
+  blog-api-integration-test:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+      - ConnectionStrings:DefaultConnection=${BLOG_API_TEST_DB:-Server=sql-data-test;Database=blog_api_test_db;User Id=sa;Password=Pass@word}
+    ports:
+      - "5101:80"
+    entrypoint:
+        - dotnet
+        - test
+        - --logger
+        - trx;LogFileName=/tests/blog-api-integration-test-results.xml
+
+  blog-services-test:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://0.0.0.0:80
+    ports:
+      - "5102:80"
+    entrypoint:
+        - dotnet
+        - test
+        - --logger
+        - trx;LogFileName=/tests/blog-services-test-results.xml

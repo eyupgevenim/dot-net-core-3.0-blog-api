@@ -68,7 +68,6 @@ namespace Blog.API.IntegrationTests.Controllers.V1
 
             //Assert
 
-            //Assert.Throws<UnauthorizedAccessException>(() => httpResponse.EnsureSuccessStatusCode());
             Assert.Throws<HttpRequestException>(() => httpResponse.EnsureSuccessStatusCode());
 
             Assert.True(httpResponse.StatusCode == HttpStatusCode.Unauthorized);

@@ -1,0 +1,16 @@
+version: '3.4'
+
+# You need to start it with the following CLI command:
+# docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
+
+services:
+    sqldata:
+        image: 'mcr.microsoft.com/mssql/server:2017-latest'
+
+    blog.api:
+        image: '${REGISTRY:-mp}/blog.api:${PLATFORM:-linux}-${TAG:-latest}'
+        build:
+            context: .
+            dockerfile: src/Presentation/Blog.API/Dockerfile
+        depends_on:
+            - sqldata

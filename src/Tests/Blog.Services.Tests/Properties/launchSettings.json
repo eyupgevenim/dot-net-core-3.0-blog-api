@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Blog.Services.Tests": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

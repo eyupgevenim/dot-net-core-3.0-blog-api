@@ -1,0 +1,27 @@
+version: '3.4'
+
+# docker-compose -f docker-compose-tests.yml -f docker-compose-tests.override.yml up --build
+
+services:
+    sql-data-test:
+        image: mcr.microsoft.com/mssql/server:2017-latest
+
+    blog-api-integration-test:
+        image: ${REGISTRY:-test}/blog-api-integration-test:${TAG:-latest}
+        build:
+            context: .
+            dockerfile: src/Tests/Blog.API.IntegrationTests/Dockerfile
+            target: integrationtest
+        volumes:
+            - ${BUILD_ARTIFACTSTAGINGDIRECTORY:-./tests-results/}:/tests
+        depends_on:
+            - sql-data-test
+
+    blog-services-test:
+        image: '${REGISTRY:-test}/blog-services-test:${TAG:-latest}'
+        build:
+            context: .
+            dockerfile: src/Tests/Blog.Services.Tests/Dockerfile
+            target: servicestest
+        volumes:
+            - ${BUILD_ARTIFACTSTAGINGDIRECTORY:-./tests-results/}:/tests
